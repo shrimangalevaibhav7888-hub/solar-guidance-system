@@ -9,8 +9,10 @@ import {
   Installer 
 } from '../types';
 
-const envApiUrl = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL;
-const API_BASE = envApiUrl ? `${envApiUrl.replace(/\/+$/, '')}/api` : '/api';
+const rawEnvUrl = (import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL || '').trim();
+const API_BASE = rawEnvUrl
+  ? (rawEnvUrl.replace(/\/+$/, '').endsWith('/api') ? rawEnvUrl.replace(/\/+$/, '') : `${rawEnvUrl.replace(/\/+$/, '')}/api`)
+  : '/api';
 
 export const api = {
   // Authentication
