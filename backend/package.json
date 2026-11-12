@@ -1,0 +1,11 @@
+{
+  "name": "solarsahayak-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SolarSahayak Python FastAPI Backend",
+  "scripts": {
+    "dev": "python run.py",
+    "start": "python run.py"
+  }
+}
+
